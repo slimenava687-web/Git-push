@@ -1,0 +1,6 @@
+~$*
+temp_*
+extracted_data.json
+generate_app.py
+render_images.py
+render_all.py

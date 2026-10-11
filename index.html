@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tổng Hợp Nghiên Cứu Hệ Thống Trợ Thị Cho Người Khiếm Thị (2021-2026)</title>
+  <meta name="description" content="Bảng tổng hợp trực quan 17 nghiên cứu về nhận diện vật cản, ước lượng khoảng cách, dự đoán va chạm và cảnh báo hỗ trợ người khiếm thị.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- HERO HEADER -->
+    <header class="header-hero">
+      <div class="hero-badge-top">
+        <span>🔬 TỔNG QUAN TÀI LIỆU KHOA HỌC • 2021 – 2026</span>
+      </div>
+      <h1 class="hero-title">Hệ Thống Trợ Thị Cho Người Khiếm Thị</h1>
+      <p class="hero-subtitle">
+        Bảng đối sánh 17 công trình nghiên cứu nổi bật về <strong>Nhận diện vật cản</strong>, <strong>Ước lượng khoảng cách/vị trí</strong>, <strong>Dự đoán va chạm (TTC)</strong> và <strong>Cảnh báo đa phương thức</strong>.
+      </p>
+
+      <!-- STATS KPI -->
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-value">17</div>
+          <div class="stat-label">Công trình nghiên cứu</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4 / 4</div>
+          <div class="stat-label">Bảng chuyên đề chức năng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Nghiên cứu phủ đủ 4 tiêu chí</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Tỷ lệ tránh va chạm (Bài #16)</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTROL TOOLBAR -->
+    <section class="control-toolbar" id="toolbar">
+      <div class="toolbar-group">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm tác giả, mô hình (YOLO, LiDAR...)...">
+        </div>
+
+        <select id="groupFilter" class="filter-select">
+          <option value="all">📂 Tất cả 4 Nhóm Bảng</option>
+          <option value="group-1">Bảng 1: Nhận diện vật cản</option>
+          <option value="group-2">Bảng 2: Ước lượng khoảng cách & vị trí</option>
+          <option value="group-3">Bảng 3: Dự đoán va chạm & nguy hiểm</option>
+          <option value="group-4">Bảng 4: Cảnh báo âm thanh & rung</option>
+        </select>
+
+        <select id="featureFilter" class="filter-select">
+          <option value="all">⚡ Lọc theo chức năng (Tất cả)</option>
+          <option value="detect">👁️ Có nhận diện vật cản</option>
+          <option value="dist">📏 Có ước lượng khoảng cách / vị trí</option>
+          <option value="col">⚠️ Có dự đoán va chạm / rủi ro</option>
+          <option value="alert">🔔 Có cảnh báo người dùng</option>
+          <option value="full">⭐ Đạt đủ 4/4 chức năng</option>
+        </select>
+
+        <span id="result-count" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); padding-left: 6px;">17 nghiên cứu hiển thị</span>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="exportAllBtn" class="btn btn-primary export-btn" onclick="exportAllTablesImage()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Xuất toàn bộ thành 1 ảnh (PNG)
+        </button>
+
+        <button id="themeToggleBtn" class="btn-theme" title="Đổi giao diện Sáng / Tối">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT WRAPPER FOR EXPORT -->
+    <div id="exportable-full-content">
+      <!-- CONTAINER FOR ALL TABLES -->
+      <main id="tables-container">
+        <!-- Rendered dynamically by app.js -->
+      </main>
+
+      <!-- SUMMARY & INSIGHTS CARD -->
+      <section class="summary-card" id="summarySection">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <h3>
+            <svg width="28" height="28" fill="none" stroke="#60a5fa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            Tổng Kết & Phân Tích Chuyên Sâu
+          </h3>
+          <button class="btn btn-outline export-btn" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" onclick="exportTableAsImage('summarySection', 'bang_tong_ket_chuyen_sau')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            Tải ảnh Phần Tổng Kết (PNG)
+          </button>
+        </div>
+
+        <div class="summary-points">
+          <div class="summary-item">
+            <div class="summary-item-header">
+              <span class="item-badge-green">🏆 Bao phủ nhiều chức năng nhất</span>
+            </div>
+            <div class="summary-item-text">
+              <strong>Bốn nghiên cứu (#10, #12, #14, #17)</strong> được đánh dấu đủ 4 chức năng. Cần phân biệt rõ giữa <em>dự đoán TTC tường minh</em> và <em>đánh giá nguy hiểm</em> theo khoảng cách/mức ưu tiên (chưa phải cả bốn đều có TTC thời gian thực).
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-item-header">
+              <span class="item-badge-blue">⏱️ Nghiên cứu trực tiếp về TTC</span>
+            </div>
+            <div class="summary-item-text">
+              <strong>Bài số 11 (2021)</strong> tập trung dự đoán thời gian đến va chạm (Time-to-Collision); <strong>bài số 12 (2023)</strong> nhận diện vật thể có khả năng giao cắt đường đi; <strong>bài số 13 (2024)</strong> xếp hạng rủi ro vật thể chuyển động.
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-item-header">
+              <span class="item-badge-yellow">🎯 Chỉ tập trung vào nhận diện</span>
+            </div>
+            <div class="summary-item-text">
+              <strong>Bài số 1, 2, 3 và 5</strong> tập trung thuần túy vào nâng cao độ chính xác của mô hình phát hiện vật thể (FCOS, YOLO-OD, DETR, BViT), chưa đủ căn cứ chứng minh các khâu đo khoảng cách và cảnh báo.
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-item-header">
+              <span class="item-badge-purple">🔬 Kiểm nghiệm thực tế đáng chú ý</span>
+            </div>
+            <div class="summary-item-text">
+              <strong>Bài #16 (WOAD, 2025 - Nature Comm.):</strong> Tránh va chạm 100%, trễ <320ms, pin 11 giờ. <strong>Bài #7 (DeepNAVI, 2023):</strong> Thử nghiệm thí điểm với người dùng. <strong>Bài #13 (ARAware, 2024):</strong> Thử nghiệm thực tế đạt tốc độ 32 FPS.
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-disclaimer">
+          ⚠️ <strong>Lưu ý học thuật:</strong> Danh sách nghiên cứu được xác minh qua các nguồn công khai có phản biện khoa học. Dấu (—) nghĩa là chưa đủ bằng chứng công bố từ nguồn đã kiểm tra, không khẳng định tác giả hoàn toàn không triển khai trong các phiên bản phần cứng mở rộng.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice"></div>
+
+  <!-- Scripts -->
+  <script src="dataset.js"></script>
+  <script src="html2canvas.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
